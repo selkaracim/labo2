@@ -15,50 +15,87 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="aceuille.css">
+
+
 </head>
 
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-main">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand fw-bold" href="index.html">Laboratoire Abda-Selka</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+  <nav class="glass-nav-wrap" aria-label="Navigation principale">
+    <div class="glass-nav">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M14 2H10" />
+            <path d="M10 2v5L4.4 17.1c-.8 1.5.3 3.4 2 3.4h11.2c1.7 0 2.8-1.9 2-3.4L14 7V2z" />
+            <path d="M6.5 13.5h11" />
+          </svg>
+        </div>
+        <span class="nav-logo-text">Laboratoire Abda-Selka</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto gap-2">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Accueil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="guide.html">Guide</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="domicile.html">À domicile</a>
-          </li>
-        </ul>
+
+      <div class="nav-menu-content">
+        <div class="nav-links">
+          <a href="guide.html" class="nav-link">Guide</a>
+          <a href="domicile.html" class="nav-link">À domicile</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <a href="http://abda.bmvie.net" class="nav-cta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="5" y="2" width="14" height="20" rx="2" />
+            <line x1="12" y1="18" x2="12" y2="18.01" />
+            <path d="M8 7h8M8 11h5" />
+          </svg>
+          Mes Résultats
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero-section"
-    style="background-image: linear-gradient(rgba(0, 29, 72, 0.85), rgba(0, 29, 72, 0.85)), url('img/prelevement.jpg');">
+  <section class="hero-section">
     <div class="container">
-      <div class="hero-content text-center">
-        <div class="fade-in-up">
-          <p class="hero-eyebrow">Accès Patient Sécurisé</p>
-          <br></br>
-          <h1 class="hero-title">Vos résultats d'analyses en ligne</h1>
+      <div class="hero-content">
+
+        <p class="hero-eyebrow">
+          <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+          Accès Patient Sécurisé
+        </p>
+
+        <h1 class="hero-title" id="hero-title">Vos résultats d’analyses en ligne</h1>
+
+        <p class="hero-subtitle">
+          Consultez vos résultats de biologie médicale en toute confidentialité,<br>
+          disponibles 24h/24 sur votre espace personnel.
+        </p>
+
+        <div class="hero-actions">
+          <a href="http://abda.bmvie.net" class="btn-results">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="2" width="14" height="20" rx="2" />
+              <line x1="12" y1="18" x2="12" y2="18.01" />
+              <path d="M8 7h8M8 11h5" />
+            </svg>
+            Mes Résultats
+            <span class="btn-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
         </div>
-        <br></br>
-        <div class="hero-actions fade-in-up" style="animation-delay: 0.2s;">
-          <a href="http://abda.bmvie.net" class="btn btn-results">Mes Résultats</a>
-        </div>
+
       </div>
     </div>
   </section>
@@ -75,7 +112,7 @@
         <div class="col-md-6 col-lg-4">
           <div class="specialty-card fade-in-up">
             <div class="specialty-icon mb-3">
-              <i class="bi bi-droplet-fill fs-1" style="color: #a83086;"></i>
+              <i class="bi bi-droplet-fill fs-1" style="color: #0056b3;"></i>
             </div>
             <h3>Biochimie & Hématologie</h3>
             <p>FNS, Bilan lipidique, Glycémie, Bilan rénal et hépatique, Coagulation.</p>
@@ -84,7 +121,7 @@
         <div class="col-md-6 col-lg-4">
           <div class="specialty-card fade-in-up" style="animation-delay: 0.1s;">
             <div class="specialty-icon text-primary mb-3">
-              <i class="bi bi-bug-fill fs-1" style="color: #a83086;"></i>
+              <i class="bi bi-bug-fill fs-1" style="color: #0056b3;"></i>
             </div>
             <h3>Microbiologie</h3>
             <p>Bactériologie, Mycologie, Parasitologie et dépistage des infections.</p>
@@ -93,7 +130,7 @@
         <div class="col-md-6 col-lg-4">
           <div class="specialty-card fade-in-up" style="animation-delay: 0.2s;">
             <div class="specialty-icon text-primary mb-3">
-              <i class="bi bi-shield-plus fs-1" style="color: #a83086;"></i>
+              <i class="bi bi-shield-plus fs-1" style="color: #0056b3;"></i>
             </div>
             <h3>Immunologie & Sérologie</h3>
             <p>Dépistage viral, Bilan d'allergies, Hormonologie et maladies auto-immunes.</p>
@@ -109,7 +146,7 @@
       <div class="row align-items-center g-5">
         <div class="col-lg-6 fade-in">
           <div class="about-image">
-            <img src="img/carte-visite.jpg" alt="Laboratoire Abda-Selka">
+            <img src="img/carte.webp" alt="Laboratoire Abda-Selka" loading="lazy">
           </div>
         </div>
         <div class="col-lg-6 fade-in" style="animation-delay: 0.1s;">
@@ -142,16 +179,16 @@
       </div>
       <div class="gallery-grid mt-5">
         <div class="gallery-item fade-in-up">
-          <img src="img/logo-tube.jpg" alt="Équipements">
+          <img src="img/logo.webp" alt="Équipements" loading="lazy">
         </div>
-        <div class="gallery-item fade-in-up" style="animation-delay: 0.1s;">
-          <img src="img/porte-i.jpg" alt="Entrée">
+        <div class="gallery-item fade-in-up" style="animation-delay: 0.1s;" >
+          <img src="img/porte1.webp" alt="Entrée" loading="lazy">
         </div>
         <div class="gallery-item fade-in-up" style="animation-delay: 0.2s;">
-          <img src="img/porte-d.jpg" alt="Accueil">
+          <img src="img/porte2.webp" alt="Accueil" loading="lazy">
         </div>
         <div class="gallery-item fade-in-up" style="animation-delay: 0.3s;">
-          <img src="img/logo.jpg" alt="Logo">
+          <img src="img/logo.webp" alt="Logo">
         </div>
       </div>
     </div>
@@ -162,7 +199,7 @@
       <div class="row g-5 align-items-center">
 
         <div class="col-lg-7 animate-on-scroll fade-in">
-          <p class="section-eyebrow fw-bold text-uppercase mb-1" style="color: #a83086 !important;">Notre Engagement</p>
+          <p class="section-eyebrow fw-bold text-uppercase mb-1" style="color: #0056b3 !important;">Notre Engagement</p>
           <h2 class="section-title fw-bold mb-4">Acteur clé de votre parcours de soins</h2>
           <p class="mission-text text-muted mb-5">
             Notre laboratoire s'engage au quotidien auprès des patients et des professionnels de santé. Nous assurons
@@ -173,7 +210,7 @@
           <div class="mission-highlights">
             <div class="d-flex align-items-start mb-4 animate-on-scroll fade-in-up">
               <div class="flex-shrink-0  bg-opacity-10  p-3 rounded-circle me-4">
-                <i class="bi bi-cpu fs-3" style="color: #a83086;"></i>
+                <i class="bi bi-cpu fs-3" style="color: #0056b3;"></i>
               </div>
               <div>
                 <h4 class="h5 fw-bold mb-1">Plateau technique de pointe</h4>
@@ -184,7 +221,7 @@
 
             <div class="d-flex align-items-start animate-on-scroll fade-in-up" style="animation-delay: 0.1s;">
               <div class="flex-shrink-0  bg-opacity-10  p-3 rounded-circle me-4">
-                <i class="bi bi-stopwatch fs-3" style="color: #a83086;"></i>
+                <i class="bi bi-stopwatch fs-3" style="color: #0056b3;"></i>
               </div>
               <div>
                 <h4 class="h5 fw-bold mb-1">Réactivité et rapidité</h4>
@@ -198,12 +235,12 @@
         <div class="col-lg-5 animate-on-scroll fade-in" style="animation-delay: 0.2s;">
 
           <div class="info-wrapper bg-white p-4 p-md-5 rounded-4 shadow border-top border-4"
-            style="border-top-color: #a83086 !important;">
+            style="border-top-color: #001d48 !important;">
             <h3 class="h4 fw-bold mb-4">Informations pratiques</h3>
 
             <div class="info-item d-flex align-items-center mb-4">
 
-              <div class="info-icon me-3" style="color: #a83086 !important;">
+              <div class="info-icon me-3" style="color: #001d48 !important;">
                 <i class="bi bi-clock fs-4"></i>
               </div>
               <div>
@@ -214,7 +251,7 @@
 
             <div class="info-item d-flex align-items-center mb-4">
 
-              <div class="info-icon me-3" style="color: #a83086 !important;">
+              <div class="info-icon me-3" style="color: #001d48 !important;">
                 <i class="bi bi-telephone fs-4"></i>
               </div>
               <div>
@@ -225,7 +262,7 @@
 
             <div class="info-item d-flex align-items-center mb-4">
 
-              <div class="info-icon me-3" style="color: #a83086 !important;">
+              <div class="info-icon me-3" style="color: #001d48 !important;">
                 <i class="bi bi-geo-alt fs-4"></i>
               </div>
               <div>
@@ -262,6 +299,7 @@
       <p>&copy; 2026 Laboratoire Abda-Selka. Tous droits réservés.</p>
     </div>
   </footer>
+  <script src="main.js" defer></script>
 </body>
 
 </html>

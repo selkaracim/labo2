@@ -19,35 +19,48 @@
 
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-main">
-    <div class="container-fluid px-4">
-      <a class="navbar-brand fw-bold" href="index.html">Laboratoire Abda-Selka</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+  <nav class="glass-nav-wrap" aria-label="Navigation principale">
+    <div class="glass-nav">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M14 2H10" />
+            <path d="M10 2v5L4.4 17.1c-.8 1.5.3 3.4 2 3.4h11.2c1.7 0 2.8-1.9 2-3.4L14 7V2z" />
+            <path d="M6.5 13.5h11" />
+          </svg>
+        </div>
+        <span class="nav-logo-text">Laboratoire Abda-Selka</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto gap-2">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Accueil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="guide.html">Guide</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="domicile.html">À domicile</a>
-          </li>
-        </ul>
+
+      <div class="nav-menu-content">
+        <div class="nav-links">
+          <a href="guide.html" class="nav-link">Guide</a>
+          <a href="domicile.html" class="nav-link">À domicile</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <a href="http://abda.bmvie.net" class="nav-cta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="5" y="2" width="14" height="20" rx="2" />
+            <line x1="12" y1="18" x2="12" y2="18.01" />
+            <path d="M8 7h8M8 11h5" />
+          </svg>
+          Mes Résultats
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero-section"
-    style="background-image: linear-gradient(rgba(0,29,72,0.8), rgba(0,29,72,0.8)), url('img/prelevement.jpg');">
+  <section class="hero-section">
     <div class="container-fluid">
       <div class="hero-content">
         <div class="fade-in-up">
@@ -73,7 +86,7 @@
         <div class="col-md-4">
           <div class="specialty-card fade-in-up">
             <div class="specialty-icon mb-3">
-              <i class="bi bi-clock-history fs-1" style="color: #a83086;"></i>
+              <i class="bi bi-clock-history fs-1" style="color: #0056b3;"></i>
             </div>
             <h3>Le Jeûne (12 Heures)</h3>
             <p>Certaines analyses (Glycémie, Bilan lipidique) nécessitent d'être à jeun strict depuis 12h. Vous pouvez
@@ -85,7 +98,7 @@
         <div class="col-md-4">
           <div class="specialty-card fade-in-up" style="animation-delay: 0.1s;">
             <div class="specialty-icon mb-3">
-              <i class="bi bi-file-earmark-medical fs-1" style="color: #a83086;"></i>
+              <i class="bi bi-file-earmark-medical fs-1" style="color: #0056b3;"></i>
             </div>
             <h3>Documents à fournir</h3>
             <p>Pensez à vous munir de votre ordonnance médicale et de votre pièce d'identité.</p>
@@ -96,7 +109,7 @@
         <div class="col-md-4">
           <div class="specialty-card fade-in-up" style="animation-delay: 0.2s;">
             <div class="specialty-icon mb-3">
-              <i class="bi bi-capsule fs-1" style="color: #a83086;"></i>
+              <i class="bi bi-capsule fs-1" style="color: #0056b3;"></i>
             </div>
             <h3>Traitements en cours</h3>
             <p>Continuez vos traitements sauf avis contraire de votre médecin. Pensez à nous signaler les médicaments
@@ -113,7 +126,7 @@
       <div class="row g-5">
 
         <div class="col-lg-12 animate-on-scroll fade-in">
-          <p class="section-eyebrow fw-bold text-uppercase mb-1" style="color: #a83086 !important;">Recueils spécifiques
+          <p class="section-eyebrow fw-bold text-uppercase mb-1" style="color: #0056b3 !important;">Recueils spécifiques
           </p>
           <h2 class="section-title fw-bold mb-5">Comment effectuer vos prélèvements à domicile ?</h2>
 
@@ -125,7 +138,7 @@
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button fw-bold fs-5" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <i class="bi bi-droplet-half fs-3 me-3" style="color: #a83086;"></i>
+                  <i class="bi bi-droplet-half fs-3 me-3" style="color: #001d48;"></i>
                   Analyse d'Urines (ECBU)
                 </button>
               </h2>
@@ -144,7 +157,7 @@
               <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed fw-bold fs-5" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  <i class="bi bi-hourglass-split fs-3 me-3" style="color: #a83086;"></i>
+                  <i class="bi bi-hourglass-split fs-3 me-3" style="color: #001d48;"></i>
                   Urines de 24 Heures
                 </button>
               </h2>
@@ -163,7 +176,7 @@
               <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed fw-bold fs-5" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  <i class="bi bi-box-seam fs-3 me-3" style="color: #a83086;"></i>
+                  <i class="bi bi-box-seam fs-3 me-3" style="color: #001d48;"></i>
                   Analyse de selles (Coproculture / Parasitologie)
                 </button>
               </h2>
@@ -202,6 +215,7 @@
       <p>&copy; 2026 Laboratoire Abda-Selka. Tous droits réservés.</p>
     </div>
   </footer>
+  <script src="main.js" defer></script>
 </body>
 
 </html>

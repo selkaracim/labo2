@@ -1,14 +1,14 @@
 :root {
     --dark: #001d48;
     --dark-soft: #061a33;
-    --accent: #a83086;
-    --accent-light: #d075b9;
-    --accent-pale: #f0e5f0;
+    --accent: #0056b3;
+    --accent-light: #6db8ff;
+    --accent-pale: #edf4fe;
     --text: #1a2332;
-    --text-light: #6b7280;
-    --bg: #f9fafb;
+    --text-light: #5e6a7e;
+    --bg: #f8fafc;
     --card: #ffffff;
-    --border: #e5e7eb;
+    --border: #e2e8f0;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -102,76 +102,310 @@ body {
     opacity: 0;
 }
 
-/* Navbar */
-.navbar-main {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 100%);
-    padding: 1rem 0;
-    box-shadow: var(--shadow);
-    border-bottom: 2px solid rgba(168, 48, 134, 0.1);
-    position: relative;
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+
+.glass-nav-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
-    transition: var(--transition);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: center;
 }
 
-.navbar-main:hover {
-    box-shadow: var(--shadow-lg);
+.glass-nav {
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 29, 72, 0.25);
+    border: 1px solid rgba(109, 184, 255, 0.2);
+    border-radius: 14px;
+    padding: 10px 12px 10px 20px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
-.navbar-brand {
-    font-size: 1.5rem;
-    letter-spacing: 0.5px;
-    color: white !important;
-    transition: var(--transition);
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
 }
 
-.navbar-brand:hover {
-    color: var(--accent-light) !important;
-}
-
-.navbar-main .nav-link {
-    color: rgba(255, 255, 255, 0.75) !important;
-    font-weight: 500;
-    font-size: 0.95rem;
-    margin: 0 0.5rem;
-    padding: 0.5rem 0.75rem !important;
-    border-radius: 0.375rem;
-    transition: var(--transition);
-    position: relative;
-}
-
-.navbar-main .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--accent-light);
-    transform: translateX(-50%);
-    transition: var(--transition);
-}
-
-.navbar-main .nav-link:hover,
-.navbar-main .nav-link.active {
-    color: white !important;
-    background: rgba(168, 48, 134, 0.15);
-}
-
-.navbar-main .nav-link:hover::after,
-.navbar-main .nav-link.active::after {
-    width: 30px;
-}
-
-/* Hero Section */
-.hero-section {
-    position: relative;
-    min-height: 85vh;
-    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 100%),
-        url('img/covid.jpg') center/cover no-repeat;
-    background-size: cover;
+.nav-logo-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(109, 184, 255, 0.15);
+    border: 1px solid rgba(109, 184, 255, 0.3);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+}
+
+.nav-logo-icon svg {
+    width: 17px;
+    height: 17px;
+}
+
+.nav-logo-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.nav-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nav-link:hover {
+    color: rgba(255, 255, 255, 0.95);
+    /* Subtle ice-blue tint on hover, matching hero dot color family */
+    background: rgba(109, 184, 255, 0.12);
+    text-decoration: none;
+}
+
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #ffffff;
+    color: var(--dark) !important;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 9px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+
+.nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 18px rgba(0, 29, 72, 0.35);
+    color: var(--dark) !important;
+    text-decoration: none;
+}
+
+.nav-cta::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 35%, rgba(0, 29, 72, 0.06) 50%, transparent 65%);
+    transform: translateX(-100%);
+    animation: navShimmer 4s ease infinite 1.5s;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 110;
+}
+
+.hamburger-bar {
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.25s ease-in-out;
+}
+
+.nav-menu-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+/* --- SCROLLED STATE (Clear/Light Background) --- */
+
+/* 1. Change the navbar background */
+.glass-nav-wrap.scrolled .glass-nav {
+    /* Changes to a clear/white glass effect */
+    background: transparent;
+    border: 1px solid rgba(0, 29, 72, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* 2. Switch Logo Text Color */
+.glass-nav-wrap.scrolled .nav-logo-text {
+    color: #001d48;
+    /* Dark Blue */
+}
+
+/* 3. Switch Logo SVG Color */
+.glass-nav-wrap.scrolled .nav-logo-icon svg {
+    stroke: #001d48;
+}
+
+.glass-nav-wrap.scrolled .nav-logo-icon {
+    background: rgba(0, 29, 72, 0.05);
+    border: 1px solid rgba(0, 29, 72, 0.1);
+}
+
+/* 4. Switch Nav Links Color */
+.glass-nav-wrap.scrolled .nav-link {
+    color: rgba(0, 29, 72, 0.7);
+}
+
+.glass-nav-wrap.scrolled .nav-link:hover {
+    color: #001d48;
+    background: rgba(0, 29, 72, 0.05);
+}
+
+/* 5. Invert the CTA Button */
+.glass-nav-wrap.scrolled .nav-cta {
+    background: #001d48;
+    color: #ffffff !important;
+}
+
+.glass-nav-wrap.scrolled .nav-cta svg {
+    stroke: #ffffff;
+}
+
+/* 6. Switch Mobile Hamburger Menu Color */
+.glass-nav-wrap.scrolled .hamburger-bar {
+    background-color: #001d48;
+}
+
+@media (max-width: 768px) {
+    .glass-nav-wrap {
+        padding: 12px 16px;
+    }
+
+    .glass-nav {
+        width: 100%;
+        position: relative;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-menu-content {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        /* Deep navy — matches hero gradient bottom */
+        background: rgba(255, 255, 255,0.05) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        border: 1px solid rgba(109, 184, 255, 0.2);
+        border-radius: 14px;
+        padding: 24px;
+        box-shadow: 0 10px 30px rgba(0, 29, 72, 0.4);
+    }
+
+    .nav-menu-content.is-active {
+        display: flex;
+        animation: fadeInDown 0.2s ease-out forwards;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .nav-cta {
+        display: inline-flex !important;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        width: auto !important;
+        padding: 12px 28px;
+        font-size: 15px;
+        margin-top: 8px;
+    }
+
+    .nav-toggle.is-active .hamburger-bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.is-active .hamburger-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.is-active .hamburger-bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================
+   HERO SECTION (ANCHOR)
+   ============================================================ */
+.hero-section {
+    position: relative;
+    min-height: 100dvh;
+    background-image: linear-gradient(rgba(0, 29, 72, 0.85), rgba(0, 29, 72, 0.85)), url('img/prelevement.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 24px 80px;
     overflow: hidden;
 }
 
@@ -193,16 +427,39 @@ body {
 }
 
 .hero-eyebrow {
-    display: inline-block;
-    color: var(--accent-light);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 100px;
+    padding: 5px 16px;
+    font-size: 11px;
     font-weight: 600;
-    margin-bottom: 1.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(208, 117, 185, 0.1);
-    border-radius: 50px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(200, 225, 255, 0.85);
+    margin-bottom: 24px;
+}
+
+.hero-eyebrow-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--accent-light);
+    border-radius: 50%;
+    animation: heroBlinkDot 2.5s ease-in-out infinite;
+}
+
+@keyframes heroBlinkDot {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
 }
 
 .hero-title {
@@ -231,28 +488,76 @@ body {
 }
 
 .btn-results {
-    padding: 1.7rem 5rem;
-    background: var(--accent);
-    color: white;
-    border: 2px solid var(--accent);
-    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: white;
+    color: var(--dark) !important;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
     font-weight: 600;
-    font-size: 1.25rem;
-    transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(168, 48, 134, 0.3);
+    padding: 13px 30px;
+    border-radius: 9px;
+    border: none;
     text-decoration: none;
-    display: inline-block;
-    letter-spacing: 0.5px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.16s ease, box-shadow 0.16s ease;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+    letter-spacing: 0.01em;
 }
 
 .btn-results:hover {
-    background: transparent;
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(168, 48, 134, 0.4);
+    transform: translateY(-2px);
+    /* Navy-tinted shadow mirrors the hero's deep background */
+    box-shadow: 0 6px 28px rgba(0, 29, 72, 0.35);
+    color: var(--dark) !important;
+    text-decoration: none;
 }
 
-/* Sections */
+.btn-results:active {
+    transform: translateY(0);
+}
+
+.btn-results::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 35%, rgba(0, 29, 72, 0.06) 50%, transparent 65%);
+    transform: translateX(-100%);
+    animation: navShimmer 4s ease infinite 2.5s;
+}
+
+.btn-results .btn-arrow {
+    display: inline-flex;
+    transition: transform 0.18s ease;
+}
+
+.btn-results:hover .btn-arrow {
+    transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-eyebrow,
+    .hero-subtitle,
+    .hero-actions {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .hero-eyebrow-dot,
+    .nav-cta::after,
+    .btn-results::after {
+        animation: none;
+    }
+}
+
+/* ============================================================
+   SECTIONS & COMPONENTS (HARMONIZED)
+   ============================================================ */
 .section-specialties,
 .section-about,
 .section-gallery,
@@ -274,6 +579,7 @@ body {
     display: inline-block;
     margin-bottom: 0.5rem;
     padding: 0.4rem 0.9rem;
+    /* Uses the hero-family ice-blue pale consistently */
     background: var(--accent-pale);
     border-radius: 50px;
 }
@@ -281,6 +587,7 @@ body {
 .section-title {
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 700;
+    /* Deep navy — the hero's dominant dark tone */
     color: var(--dark);
     letter-spacing: -0.02em;
     margin: 1rem 0 0.5rem;
@@ -312,6 +619,7 @@ body {
 .specialty-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-xl);
+    /* Ice-blue border on hover — matches hero dot accent */
     border-color: var(--accent-light);
 }
 
@@ -321,14 +629,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(168, 48, 134, 0.12), rgba(208, 117, 185, 0.06));
+    /* Accent blue gradient using hero-palette stops */
+    background: linear-gradient(135deg, rgba(0, 86, 179, 0.12), rgba(109, 184, 255, 0.08));
     border-radius: 1rem;
     margin-bottom: 1.5rem;
     transition: var(--transition);
 }
 
 .specialty-card:hover .specialty-icon {
-    background: linear-gradient(135deg, rgba(168, 48, 134, 0.2), rgba(208, 117, 185, 0.12));
+    background: linear-gradient(135deg, rgba(0, 86, 179, 0.2), rgba(109, 184, 255, 0.16));
     transform: scale(1.1);
 }
 
@@ -338,10 +647,10 @@ body {
     object-fit: contain;
 }
 
-
 .specialty-card h3 {
     font-size: 1.35rem;
     font-weight: 600;
+    /* Hero's navy for all headings */
     color: var(--dark);
     margin-bottom: 0.75rem;
 }
@@ -354,6 +663,7 @@ body {
 
 /* About Section */
 .section-about {
+    /* Cool off-white — matches the hero's page canvas tone */
     background: var(--bg);
 }
 
@@ -404,19 +714,22 @@ body {
     transform: translateY(-50%);
     width: 6px;
     height: 6px;
+    /* Accent blue — consistent with hero CTA blue */
     background: var(--accent);
     border-radius: 50%;
     transition: var(--transition);
 }
 
 .about-list li:hover::before {
+    /* Ice-blue on hover — matches hero eyebrow dot */
     background: var(--accent-light);
     transform: translateY(-50%) scale(1.3);
 }
 
 /* Gallery Section */
 .section-gallery {
-    background: linear-gradient(135deg, #fafbfc 0%, #f3f4f6 100%);
+    /* Cool navy-echo gradient — flows naturally from the hero's navy world */
+    background: linear-gradient(135deg, var(--accent-pale) 0%, #dde9f8 100%);
 }
 
 .gallery-grid {
@@ -459,7 +772,8 @@ body {
 
 /* Mission Section */
 .section-mission {
-    background: white;
+    /* Keeps white card feel but unified with the cool bg system */
+    background: var(--card);
 }
 
 .mission-text {
@@ -486,6 +800,7 @@ body {
 }
 
 .highlight:hover {
+    /* Ice-blue pale tint on hover — hero palette echo */
     background: var(--accent-pale);
     border-color: var(--accent-light);
     transform: translateX(8px);
@@ -498,7 +813,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(168, 48, 134, 0.15), rgba(208, 117, 185, 0.08));
+    background: linear-gradient(135deg, rgba(0, 86, 179, 0.15), rgba(109, 184, 255, 0.1));
     border-radius: 0.75rem;
     transition: var(--transition);
 }
@@ -516,6 +831,7 @@ body {
 .highlight h4 {
     font-size: 1.1rem;
     font-weight: 600;
+    /* Deep navy for all headings — mirrors hero title color */
     color: var(--dark);
     margin-bottom: 0.25rem;
 }
@@ -534,17 +850,19 @@ body {
 }
 
 .info-card {
-    background: linear-gradient(135deg, var(--accent-pale) 0%, rgba(240, 229, 240, 0.5) 100%);
+    /* Pure accent-pale gradient — hero's ice-blue family */
+    background: linear-gradient(135deg, var(--accent-pale) 0%, rgba(221, 233, 248, 0.6) 100%);
     padding: 2.5rem;
     border-radius: 1.25rem;
     text-align: center;
-    border: 1px solid rgba(168, 48, 134, 0.2);
+    border: 1px solid rgba(0, 86, 179, 0.15);
     transition: var(--transition);
 }
 
 .info-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(168, 48, 134, 0.15);
+    /* Navy-tinted shadow for depth consonant with the hero */
+    box-shadow: 0 8px 20px rgba(0, 29, 72, 0.1);
 }
 
 .info-card h3 {
@@ -563,6 +881,7 @@ body {
 
 /* CTA Section */
 .section-cta {
+    /* Both stops come from the hero's dark-navy family */
     background: linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 100%);
     color: white;
     padding: 5rem 2rem;
@@ -584,14 +903,15 @@ body {
 
 .btn-cta {
     padding: 0.9rem 2.75rem;
-    background: var(--accent);
+    /* Consistent accent blue — same as nav-cta and hero button ring */
+    background: var(--dark);
     color: white;
-    border: 2px solid var(--accent);
+    border: 2px solid var(--dark);
     border-radius: 0.5rem;
     font-weight: 600;
     font-size: 1rem;
     transition: var(--transition);
-    box-shadow: 0 4px 15px rgba(168, 48, 134, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 86, 179, 0.35);
     text-decoration: none;
     display: inline-block;
     letter-spacing: 0.5px;
@@ -600,18 +920,22 @@ body {
 .btn-cta:hover {
     background: transparent;
     color: var(--accent);
+    /* White border — pops on navy, mirrors nav-cta hover paradigm */
+    border-color: var(--accent);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(168, 48, 134, 0.4);
+    box-shadow: 0 8px 20px rgba(109, 184, 255, 0.2);
 }
 
 /* Footer */
 .site-footer {
+    /* Navy-soft — the darkest surface in the hero family */
     background: var(--dark-soft);
     color: rgba(255, 255, 255, 0.7);
     padding: 2.5rem 0;
     text-align: center;
     font-size: 0.95rem;
-    border-top: 1px solid rgba(168, 48, 134, 0.1);
+    /* Ice-blue top line — the hero accent-light at low opacity */
+    border-top: 1px solid rgba(109, 184, 255, 0.15);
 }
 
 .site-footer p {
@@ -652,10 +976,15 @@ button {
         align-items: center;
     }
 
-    .btn-results,
+    .btn-results {
+        width: auto;
+        max-width: 320px;
+    }
+
+    /* Keep the nav CTA full width in the mobile menu for prominence */
     .btn-cta {
         width: 100%;
-        max-width: 300px;
+        max-width: 340px;
     }
 
     .gallery-grid {
@@ -716,10 +1045,9 @@ button {
     }
 }
 
-
-/* --- Version renforcée pour l'Accordéon --- */
-
-/* On cible l'élément et on force l'encapsulation */
+/* ============================================================
+   ACCORDION (HARMONIZED)
+   ============================================================ */
 .accordion-item {
     background-color: var(--card) !important;
     border: 1px solid var(--border) !important;
@@ -727,55 +1055,48 @@ button {
     margin-bottom: 1.25rem !important;
     box-shadow: var(--shadow-sm) !important;
     overflow: hidden !important;
-    /* Force les enfants à respecter l'arrondi */
     transition: var(--transition) !important;
 }
 
 .accordion-item:hover {
     box-shadow: var(--shadow) !important;
-    border-color: rgba(168, 48, 134, 0.4) !important;
+    /* Ice-blue border on hover — consistent with card hover pattern */
+    border-color: var(--accent-light) !important;
     transform: translateY(-2px);
 }
 
-/* On force le bouton interne à s'arrondir aussi */
 .accordion-button {
     padding: 1.25rem 1.5rem !important;
     font-size: 1.1rem !important;
+    /* Deep navy text — consistent with all other headings */
     color: var(--dark) !important;
     background-color: transparent !important;
     border: none !important;
     border-radius: 1rem !important;
-    /* Évite les angles bruts de Bootstrap */
 }
 
-/* Style quand l'accordéon est ouvert */
 .accordion-button:not(.collapsed) {
-    color: var(--accent) !important;
+    color: var(--dark) !important;
+    /* Hero-family ice-blue pale for the active/open state */
     background-color: var(--accent-pale) !important;
     box-shadow: none !important;
-    /* On casse l'arrondi du bas uniquement quand c'est ouvert */
     border-bottom-left-radius: 0px !important;
     border-bottom-right-radius: 0px !important;
 }
 
-/* On supprime définitivement le halo bleu de Bootstrap au clic */
 .accordion-button:focus {
     box-shadow: none !important;
     outline: none !important;
 }
 
-/* Zone de texte interne */
 .accordion-body {
     padding: 1.5rem !important;
     color: var(--text-light) !important;
     background-color: var(--card) !important;
-    border-top: 1px solid rgba(168, 48, 134, 0.1) !important;
+    /* Subtle accent-blue top divider inside open accordion */
+    border-top: 1px solid rgba(0, 86, 179, 0.12) !important;
 }
 
-
-/* --- Correction définitive de la flèche de l'accordéon --- */
-
-/* 1. Sécurité : On nettoie tous les contours restants au clic */
 .accordion-button:focus,
 .accordion-button:active,
 .accordion-button:focus-visible {
@@ -783,13 +1104,11 @@ button {
     box-shadow: none !important;
 }
 
-/* 2. On remplace la flèche par défaut par une flèche violette (#a83086) */
+/* Deep navy arrowhead — matches var(--dark) #001d48 */
 .accordion-button::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23a83086'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23001d48'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
 }
 
-/* 3. On garde cette même flèche violette lorsqu'elle se retourne (accordéon ouvert) */
 .accordion-button:not(.collapsed)::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23a83086'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23001d48'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
 }
-
